@@ -1,0 +1,201 @@
+
+.primary-bg{
+    background-color: #FFA726 ;
+}
+        .navbar {
+            background-color: white;
+            color: black;
+        }
+
+
+        .flex-container {
+            display: flex;
+        }
+
+
+        .sidebar {
+            width: 100px;
+            height: calc(100vh - 56px);
+            background-color: #42A5F5;
+            color: white;
+            border-top-right-radius: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+
+        .profile {
+            width: 300px;
+            height: calc(100vh - 56px);
+            background-color: white;
+            border-top-left-radius: 20px;
+        }
+
+
+        .middle-section {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #E0E0E0;
+            border-radius: 20px;
+            margin-right: 20px;
+        }
+
+
+        .profile-set {
+            text-align: center;
+
+        }
+
+        .profile-set img {
+            border-radius: 50%;
+        }
+
+
+
+
+        /*employee register*/
+
+        .sidebar-employee {
+            margin: 20px;
+            width: 300px;
+
+            border: 2px solid #42A5F5;
+            border-radius: 10px;
+
+
+        }
+
+        .sidebar-employee ul {
+            margin-top: 10px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar-employee ul li {
+            padding: 10px;
+            color: black;
+        }
+
+        .sidebar-employee ul li a:hover {
+            color: white;
+            border-radius: 5px;
+
+            background-color: #42A5F5;
+
+        }
+        .sidebar-employee ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .sidebar-employee ul li a:hover {
+            color: #555;
+        }
+
+        .middle-section-add {
+            margin-right: 25px;
+            margin-top:25px;
+            margin-left: 25px;
+            padding: 25px;
+            flex-grow: 1;
+            background-color: white;
+            border-radius: 20px;
+
+        }
+
+        .flex-container-add {
+            display: flex;
+            background-color: #E0E0E0;
+        }
+
+
+
+.custom-file-upload {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #9E9E9E;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: #0056b3;
+}
+
+#file-upload {
+    display: none;
+}
+
+#code {
+    width: 150px;
+}
+
+
+
+
+/*datatable design*/
+        .dataTables_wrapper .dataTables_filter input {
+            width: 300px; /* Adjust the width as needed */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+            background-color: #fff;
+            border-radius: 10px;
+            background-image: url('/static/image/search.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding-left: 40px;
+        }
+
+
+        .dataTables_paginate {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .dataTables_paginate .paginate_button {
+            display: inline-block;
+            padding: 8px 12px;
+            margin-right: 5px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .dataTables_paginate .paginate_button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .dataTables_paginate .paginate_button.current {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+
+        /* Pagination info styles */
+        .dataTables_info {
+            margin-top: 10px;
+        }
+
+
+
