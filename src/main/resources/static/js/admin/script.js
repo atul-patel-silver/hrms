@@ -336,3 +336,24 @@ $("#employee-first-page").validate({
     }
 });
 });
+
+
+
+//edite page
+
+$(document).ready(function () {
+    $("#personal-Info-button").click(function () {
+        $("#employee-form").hide();
+        $("#employee-contact-form").hide();
+        $("#employee-personal-form").show();
+    });
+});
+
+
+$(document).ready(function () {
+    $("#contact-Info-Button").click(function () {
+        $("#employee-form").hide();
+        $("#employee-personal-form").hide();
+        $("#employee-contact-form").show();
+    });
+});

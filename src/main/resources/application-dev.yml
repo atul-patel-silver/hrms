@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:3307/hrms
+    username: postgres
+    password: root123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    format_sql: true
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  mvc:
+    view:
+      prefix: /views/
+      suffix: .jsp
