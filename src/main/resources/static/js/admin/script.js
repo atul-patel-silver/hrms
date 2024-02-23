@@ -264,7 +264,7 @@ $("#employee-first-page").validate({
 
         code2: {
             required: true,
-            minlength: 2
+            minlength: 4
         },
         panNumber: {
             required: true,
@@ -304,7 +304,7 @@ $("#employee-first-page").validate({
     messages: {
         code2: {
             required: "Please enter employee code",
-            minlength: "Employee code must be at least 2 characters long"
+            minlength: "Employee code must be at least 4 characters long"
         },
         panNumber: {
             required: "Please enter PAN number",
@@ -321,9 +321,9 @@ $("#employee-first-page").validate({
             data: $(form).serialize(),
             success: function(response) {
                 if (response.isSuccess.trim() === 'success') {
-                    toastr.success('Successfully Save Employee');
                     form.reset();
                     window.location = "/admin/editEmployee/"+response.id;
+                    toastr.success('Successfully Save Employee');
                 } else {
                     toastr.error('Something Went Wrong !!');
                 }
@@ -355,5 +355,431 @@ $(document).ready(function () {
         $("#employee-form").hide();
         $("#employee-personal-form").hide();
         $("#employee-contact-form").show();
+    });
+});
+
+
+
+$(document).ready(function() {
+    $('#isGovernmentVehicleProvider').change(function() {
+        if ($(this).is(":checked")) {
+            $('#UsedForOnDuty').show();
+            $('#detailOfVehicle').show();
+        } else {
+            $('#UsedForOnDuty').hide();
+            $('#detailOfVehicle').hide();
+        }
+    });
+});
+
+
+$(document).ready(function() {
+    $('#isResidentOfOtherCountry').change(function() {
+        if($(this).is(":checked")) {
+            $('#othercountry').show();
+        } else {
+            $('#othercountry').hide();
+        }
+    });
+});
+
+
+
+
+$(document).ready(function() {
+    $('#employee-personal-page').validate({
+        rules: {
+            gender: {
+                required: true
+            },
+            marriageStatus: {
+                required: true
+            },
+            dateOfBirth: {
+                required: true
+            },
+
+            uidNo: {
+                required: true,
+                digits: true
+            },
+            gpfAcNo: {
+                required: true,
+                digits: true
+            },
+            religion: {
+                required: true
+            },
+            caste: {
+                required: true
+            },
+            communityCategoryRef: {
+                required: true
+            },
+            nationality: {
+                required: true
+            },
+
+            bankName: {
+                required: true
+            },
+            bankBranch: {
+                required: true
+            },
+            bankAcNo: {
+                required: true,
+                digits: true
+            },
+            ifscCode: {
+                required: true
+            },
+            bsrCode: {
+                required: true
+            },
+
+            passportNo: {
+                required: true
+            },
+            dateOfExpiry: {
+                required: true
+            },
+            visaDetail: {
+                required: true
+            },
+
+            drivingLicenceNo: {
+                required: true
+            },
+            vehicleType: {
+                required: true
+            },
+            validUpto: {
+                required: true
+            },
+
+            issuedState: {
+                required: true
+            },
+
+            detailOfVehicleProvider:{
+                required: function(element) {
+                    return $('#isGovernmentVehicleProvider').is(':checked');
+                }
+            },
+            migrationDateOfIndia: {
+                required: function(element) {
+                    return $('#isResidentOfOtherCountry').is(':checked');
+                }
+            },
+            country: {
+                required: function(element) {
+                    return $('#isResidentOfOtherCountry').is(':checked');
+                }
+            },
+            otherCountryAddress: {
+                required: function(element) {
+                    return $('#isResidentOfOtherCountry').is(':checked');
+                }
+            }
+
+        },
+        messages: {
+            gender: {
+                required: "Please select gender"
+            },
+            marriageStatus: {
+                required: "Please select marital status"
+            },
+            dateOfBirth: {
+                required: "Please select date of birth"
+            },
+
+            uidNo: {
+                required: "Please enter UID number",
+                digits: "Please enter valid UID number"
+            },
+            gpfAcNo: {
+                required: "Please enter GPF account number",
+                digits: "Please enter valid GPF account number"
+            },
+            religion: {
+                required: "Please select religion"
+            },
+            caste: {
+                required: "Please select caste"
+            },
+            communityCategoryRef: {
+                required: "Please enter community category reference"
+            },
+            nationality: {
+                required: "Please select nationality"
+            },
+
+            bankName: {
+                required: "Please enter bank name"
+            },
+            bankBranch: {
+                required: "Please select bank branch"
+            },
+            bankAcNo: {
+                required: "Please enter bank account number",
+                digits: "Please enter valid bank account number"
+            },
+
+            ifscCode: {
+                required: "Please enter IFSC code"
+            },
+            bsrCode: {
+                required: "Please enter BSR code"
+            },
+
+            passportNo: {
+                required: "Please enter passport number"
+            },
+            dateOfExpiry: {
+                required: "Please select date of expiry"
+            },
+            visaDetail: {
+                required: "Please enter visa detail"
+            },
+
+            drivingLicenceNo: {
+                required: "Please enter driving licence number"
+            },
+            vehicleType: {
+                required: "Please enter vehicle type"
+            },
+            validUpto: {
+                required: "Please select valid upto date"
+            },
+
+            issuedState: {
+                required: "Please select issued state"
+            },
+
+
+        },
+        submitHandler: function(form) {
+            $.ajax({
+                enctype: 'multipart/form-data',
+                type: 'POST',
+                url: '/admin/employee-personalData',
+                data: new FormData(form),
+                processData: false,
+                contentType: false,
+                cache: false,
+
+                success: function(response) {
+                    if (response.trim() === 'success') {
+                        form.reset();
+                        toastr.success('Successfully Save Personal Data');
+                    } else {
+                        toastr.error('Something Went Wrong !!');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    toastr.error('Something Went Wrong !!');
+                }
+            });
+        }
+    });
+});
+
+
+
+    $(document).ready(function() {
+
+    $("#employee-contact-page").validate({
+
+        rules: {
+            workPhone: {
+                required: true,
+                digits: true
+            },
+            extention: {
+                required: true
+            },
+            workMobile: {
+                required: true,
+                digits: true
+            },
+            corporateEmail: {
+                required: true,
+                email: true
+            },
+            personalEmail: {
+                required: true,
+                email: true
+            },
+
+        },
+        messages: {
+            workPhone: {
+                required: "Please enter your work phone number",
+                digits: "Please enter only digits"
+            },
+            extention: {
+                required: "Please enter your extension"
+            },
+            workMobile: {
+                required: "Please enter your work mobile number",
+                digits: "Please enter only digits"
+            },
+            corporateEmail: {
+                required: "Please enter your corporate email",
+                email: "Please enter a valid email address"
+            },
+            personalEmail: {
+                required: "Please enter your personal email",
+                email: "Please enter a valid email address"
+            },
+        },
+        submitHandler: function(form) {
+            var formData = {
+                workPhone: $('#workPhone').val(),
+                extention: $('#extention').val(),
+                workMobile: $('#workMobile').val(),
+                homePhone: $('#homePhone').val(),
+                homeMobile: $('#homeMobile').val(),
+                corporateEmail: $('#corporateEmail').val(),
+                personalEmail: $('#personalEmail').val(),
+                secondaryEmail: $('#secondaryEmail').val(),
+
+            };
+           var employeeId = $('#employeeId2').val();
+            $.ajax({
+                type: "POST",
+                url: "/admin/employeeContactFromData/"+employeeId,
+                contentType: "application/json",
+                data: JSON.stringify(formData),
+                success: function(response) {
+                    if (response.trim() === 'success') {
+                        form.reset();
+                        toastr.success('Successfully Save Contact Data');
+                    } else {
+                        toastr.error('Something Went Wrong !!');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    toastr.error('Something Went Wrong !!');
+                }
+            });
+        }
+    });
+});
+
+
+
+$(document).ready(function() {
+    // Add validation rules and messages
+    $("#address-form").validate({
+        rules: {
+            addressType: "required",
+            address: "required",
+            country: "required",
+            state: "required",
+            district: "required",
+            city: "required",
+            pincode: "required",
+            addressOwner: "required"
+        },
+        messages: {
+
+        },
+        submitHandler: function(form) {
+            var formData = {
+                 addressType : $('#addressType').val(),
+                 address : $('#address').val(),
+                 country : $('#country2').val(),
+                 state : $('#state').val(),
+                 district : $('#district').val(),
+                 city : $('#city').val(),
+                 pincode : $('#pincode').val(),
+                 allAddressAreSame : $('#allAddressAreSame').is(':checked'),
+                 addressOwner : $('input[name="addressOwner"]:checked').val(),
+
+            };
+            var employeeId = $('#employeeId3').val();
+            $.ajax({
+                type: "POST",
+                url: "/admin/employeeAddressFromData/"+employeeId,
+                contentType: "application/json",
+                data: JSON.stringify(formData),
+                success: function(response) {
+                    if (response.trim() === 'success') {
+                        form.reset();
+                        toastr.success('Successfully Save Address Data');
+                        $("#exampleModal").modal("hide");
+                    } else {
+                        toastr.error('Something Went Wrong !!');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    toastr.error('Something Went Wrong !!');
+                }
+            });
+
+        }
+    });
+});
+
+
+
+$(document).ready(function () {
+    $('.delete-address').click(function () {
+
+        var address_id = $(this).data('address_id');
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success ml-2',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false,
+        });
+
+        swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: 'You are about to delete this Address.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/admin/delete-address',
+                    data: {
+                        address_id: address_id
+                    },
+                    success: function (response) {
+
+                        swalWithBootstrapButtons.fire(
+                            'Deleted!',
+                            'The Address has been deleted.',
+                            'success'
+                        );
+
+                        $(this).closest('tr').remove();
+                    },
+                    error: function (xhr, status, error) {
+
+                        swalWithBootstrapButtons.fire(
+                            'Error!',
+                            'An error occurred while deleting the Address.',
+                            'error'
+                        );
+                    }
+                });
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalWithBootstrapButtons.fire(
+                    'Cancelled',
+                    'The Address has not been deleted.',
+                    'error'
+                );
+            }
+        });
     });
 });

@@ -106,7 +106,7 @@
                                 <div class="row g-3 mb-4">
                                     <div class="col-sm">
                                         <label for="code" class="form-label">Employee Code</label>
-                                        <input disabled id="code" type="text" name="code" class="form-control" value="STTP" placeholder="STTP" aria-label="Employee Code">
+                                        <input disabled id="code" type="text" name="code" class="form-control" style="background-color: white" value="STTP" placeholder="STTP" aria-label="Employee Code">
                                     </div>
                                     <div class="col">
                                         <label  for="code2" class="form-label">Employee code</label>

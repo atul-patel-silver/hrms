@@ -199,3 +199,13 @@
 
 
 
+
+.center-box {
+    border: 2px black;
+    width: 300px;
+    height: 300px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}

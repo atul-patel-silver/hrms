@@ -50,7 +50,30 @@ public class Employee {
 
     private boolean isEnable;
 
+
     @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "login_id")
     private Login login;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "employee")
+    private List<Address>  addresses;
+
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
+    private Contact contact;
+
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
+    private Emergency emergency;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "employee")
+    private List<Family> families;
+
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
+    private Health health;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "employee")
+    private List<Nominee> nominees;
+
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
+    private Personal personal;
+
 }
