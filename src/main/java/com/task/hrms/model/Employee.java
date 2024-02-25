@@ -76,4 +76,8 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
     private Personal personal;
 
+
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
+    private Photograph photograph;
+
 }

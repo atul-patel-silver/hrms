@@ -25,6 +25,9 @@ $(document).ready(function () {
 });
 
 
+
+
+//depart ment form
 $(document).ready(function () {
     $("#department-reg-form").validate({
         rules: {
@@ -345,6 +348,11 @@ $(document).ready(function () {
     $("#personal-Info-button").click(function () {
         $("#employee-form").hide();
         $("#employee-contact-form").hide();
+        $("#employee-family-form").hide();
+        $("#employee-nominee-form").hide();
+        $("#employee-health-form").hide();
+        $("#employee-photograph-form").hide();
+        $("#employee-emergancy-form").hide();
         $("#employee-personal-form").show();
     });
 });
@@ -354,11 +362,105 @@ $(document).ready(function () {
     $("#contact-Info-Button").click(function () {
         $("#employee-form").hide();
         $("#employee-personal-form").hide();
+        $("#employee-family-form").hide();
+        $("#employee-nominee-form").hide();
+        $("#employee-health-form").hide();
+        $("#employee-attachment-form").hide();
+        $("#employee-photograph-form").hide();
+        $("#employee-emergancy-form").hide();
         $("#employee-contact-form").show();
     });
 });
 
+$(document).ready(function () {
+    $("#family-Info-Button").click(function () {
+        $("#employee-form").hide();
+        $("#employee-personal-form").hide();
+        $("#employee-contact-form").hide();
+        $("#employee-nominee-form").hide();
+        $("#employee-health-form").hide();
+        $("#employee-attachment-form").hide();
+        $("#employee-photograph-form").hide();
+        $("#employee-emergancy-form").hide();
+        $("#employee-family-form").show();
+    });
+});
 
+$(document).ready(function () {
+    $("#nominee-Info-Button").click(function () {
+        $("#employee-form").hide();
+        $("#employee-personal-form").hide();
+        $("#employee-contact-form").hide();
+        $("#employee-family-form").hide();
+        $("#employee-health-form").hide();
+        $("#employee-attachment-form").hide();
+        $("#employee-photograph-form").hide();
+        $("#employee-emergancy-form").hide();
+        $("#employee-nominee-form").show();
+
+    });
+});
+
+$(document).ready(function () {
+    $("#health-Info-Button").click(function () {
+        $("#employee-form").hide();
+        $("#employee-personal-form").hide();
+        $("#employee-contact-form").hide();
+        $("#employee-family-form").hide();
+        $("#employee-nominee-form").hide();
+        $("#employee-attachment-form").hide();
+        $("#employee-photograph-form").hide();
+        $("#employee-emergancy-form").hide();
+        $("#employee-health-form").show();
+
+    });
+});
+
+
+$(document).ready(function () {
+    $("#photograph-Info-Button").click(function () {
+        $("#employee-form").hide();
+        $("#employee-personal-form").hide();
+        $("#employee-contact-form").hide();
+        $("#employee-family-form").hide();
+        $("#employee-nominee-form").hide();
+        $("#employee-health-form").hide();
+        $("#employee-attachment-form").hide();
+        $("#employee-emergancy-form").hide();
+        $("#employee-photograph-form").show();
+
+    });
+});
+
+$(document).ready(function () {
+    $("#attachment-Info-Button").click(function () {
+        $("#employee-form").hide();
+        $("#employee-personal-form").hide();
+        $("#employee-emergancy-form").hide();
+        $("#employee-contact-form").hide();
+        $("#employee-family-form").hide();
+        $("#employee-nominee-form").hide();
+        $("#employee-health-form").hide();
+        $("#employee-photograph-form").hide();
+        $("#employee-attachment-form").show();
+
+    });
+});
+
+$(document).ready(function () {
+    $("#emergency-Info-Button").click(function () {
+        $("#employee-form").hide();
+        $("#employee-personal-form").hide();
+        $("#employee-contact-form").hide();
+        $("#employee-family-form").hide();
+        $("#employee-nominee-form").hide();
+        $("#employee-health-form").hide();
+        $("#employee-photograph-form").hide();
+        $("#employee-attachment-form").hide();
+        $("#employee-emergancy-form").show();
+
+    });
+});
 
 $(document).ready(function() {
     $('#isGovernmentVehicleProvider').change(function() {
@@ -781,5 +883,550 @@ $(document).ready(function () {
                 );
             }
         });
+    });
+});
+
+
+
+//family form
+
+$(document).ready(function() {
+    $('#employee-family-page').validate({
+        rules: {
+            firstName: {
+                required: true,
+                minlength: 2
+            },
+            middleName: {
+                required: true,
+                minlength: 2
+            },
+            lastName: {
+                required: true,
+                minlength: 2
+            },
+            relation: {
+                required: true
+            },
+            dateOfBirth: {
+                required: true
+            },
+            gender: {
+                required: true
+            },
+            maritalStatus: {
+                required: true
+            },
+            occupation: {
+                required: true
+            },
+            contactDetails: {
+                required: true
+            },
+            nationality: {
+                required: true
+            },
+            address: {
+                required: true
+            }
+        },
+        messages: {
+            firstName: {
+                required: "Please enter your first name",
+                minlength: "Your first name must be at least 2 characters long"
+            },
+            middleName: {
+                required: "Please enter your middle name",
+                minlength: "Your middle name must be at least 2 characters long"
+            },
+            lastName: {
+                required: "Please enter your last name",
+                minlength: "Your last name must be at least 2 characters long"
+            },
+            relation: {
+                required: "Please select a relation"
+            },
+            dateOfBirth: {
+                required: "Please enter your date of birth"
+            },
+            gender: {
+                required: "Please select your gender"
+            },
+            maritalStatus: {
+                required: "Please select your marital status"
+            },
+            occupation: {
+                required: "Please enter your occupation"
+            },
+            contactDetails: {
+                required: "Please enter your contact details"
+            },
+            nationality: {
+                required: "Please select your nationality"
+            },
+            address: {
+                required: "Please enter your address"
+            }
+        },
+        submitHandler: function(form) {
+            var formData = {
+
+                    firstName: $('#firstNameF').val(),
+                    middleName: $('#middleNameF').val(),
+                    lastName: $('#lastNameF').val(),
+                    relation: $('#relation').val(),
+                    dateOfBirth: $('#dateOfBirthF').val(),
+                    gender: $('#genderF').val(),
+                    isNominee: $('#isNominee').is(':checked'),
+                    maritalStatus: $('#maritalStatus').val(),
+                    occupation: $('#occupation').val(),
+                    isDependent: $('#isDependent').is(':checked'),
+                    contactDetails: $('#contactDetails').val(),
+                    nationality: $('#nationalityF').val(),
+                    isResidingWith: $('#isResidingWith').is(':checked'),
+                    contactInEmergency: $('#contactInEmergency').is(':checked'),
+                    isPhysicallyDisabled: $('#isPhysicallyDisabled').is(':checked'),
+                    address: $('#addressF').val()
+
+            };
+            var employeeId = $('#employeeId4').val();
+            $.ajax({
+                type: "POST",
+                url: "/admin/employeeFamilyFromData/"+employeeId,
+                contentType: "application/json",
+                data: JSON.stringify(formData),
+                success: function(response) {
+                    if (response.trim() === 'success') {
+                        form.reset();
+                        toastr.success('Successfully Save Family Data');
+                    } else {
+                        toastr.error('Something Went Wrong !!');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    toastr.error('Something Went Wrong !!');
+                }
+            });
+        }
+    });
+});
+
+
+
+$(document).ready(function () {
+    $('.delete-family').click(function () {
+
+        var family_id = $(this).data('family_id');
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success ml-2',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false,
+        });
+
+        swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: 'You are about to delete this Family Member.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/admin/delete-family',
+                    data: {
+                        family_id: family_id
+                    },
+                    success: function (response) {
+
+                        swalWithBootstrapButtons.fire(
+                            'Deleted!',
+                            'The family member has been deleted.',
+                            'success'
+                        );
+
+                        $(this).closest('tr').remove();
+                    },
+                    error: function (xhr, status, error) {
+
+                        swalWithBootstrapButtons.fire(
+                            'Error!',
+                            'An error occurred while deleting the Family member.',
+                            'error'
+                        );
+                    }
+                });
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalWithBootstrapButtons.fire(
+                    'Cancelled',
+                    'The Family Member has not been deleted.',
+                    'error'
+                );
+            }
+        });
+    });
+});
+
+
+$(document).ready(function() {
+    $('#employee-emergancy-page').validate({
+        rules: {
+            priority: {
+                required: true
+            },
+            firstName: {
+                required: true
+            },
+            middleName: {
+                required: true
+            },
+            lastName: {
+                required: true
+            },
+            relation: {
+                required: true
+            },
+            phoneNo: {
+                required: true,
+                digits: true
+            },
+            mobileNo: {
+                required: true,
+                digits: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            address: {
+                required: true
+            }
+        },
+        messages: {
+            priority: {
+                required: "Please enter priority."
+            },
+            firstName: {
+                required: "Please enter first name."
+            },
+            middleName: {
+                required: "Please enter middle name."
+            },
+            lastName: {
+                required: "Please enter last name."
+            },
+            relation: {
+                required: "Please select relation."
+            },
+            phoneNo: {
+                required: "Please enter phone number.",
+                digits: "Please enter only digits."
+            },
+            mobileNo: {
+                required: "Please enter mobile number.",
+                digits: "Please enter only digits."
+            },
+            email: {
+                required: "Please enter email.",
+                email: "Please enter a valid email address."
+            },
+            address: {
+                required: "Please enter address."
+            }
+        },
+        submitHandler: function(form) {
+            var formData = {
+                priority: $('#priority').val(),
+                firstName: $('#firstNameE').val(),
+                middleName: $('#middleNameE').val(),
+                lastName: $('#lastNameE').val(),
+                relation: $('#relationE').val(),
+                phoneNo: $('#phoneNo').val(),
+                mobileNo: $('#mobileNo').val(),
+                email: $('#email').val(),
+                address: $('#addressE').val()
+
+            };
+
+
+            var employeeId = $('#employeeId9').val();
+            $.ajax({
+                type: "POST",
+                url: "/admin/employeeFromEmergancyData/"+employeeId,
+                contentType: "application/json",
+                data: JSON.stringify(formData),
+                success: function(response) {
+                    if (response.trim() === 'success') {
+                        form.reset();
+                        toastr.success('Successfully Save Emergency Data');
+                    } else {
+                        toastr.error('Something Went Wrong !!');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    toastr.error('Something Went Wrong !!');
+                }
+            });
+        }
+    });
+});
+
+
+$(document).ready(function() {
+    $("#employee-health-page").validate({
+        rules: {
+            height: {
+                required: true,
+                number: true
+            },
+            weight: {
+                required: true,
+                number: true
+            },
+            bloodGroup: {
+                required: true
+            },
+            identificationMark1: {
+                required: true
+            },
+            identificationMark2: {
+                required: true
+            }
+        },
+        messages: {
+            height: {
+                required: "Please enter height",
+                number: "Please enter a valid number"
+            },
+            weight: {
+                required: "Please enter weight",
+                number: "Please enter a valid number"
+            },
+            bloodGroup: {
+                required: "Please select blood group"
+            },
+            identificationMark1: {
+                required: "Please enter identification mark 1"
+            },
+            identificationMark2: {
+                required: "Please enter identification mark 2"
+            }
+        },
+        submitHandler: function(form) {
+                var formData = {
+                    height: $('#height').val(),
+                    weight: $('#weight').val(),
+                    bloodGroup: $('#bloodGroup').val(),
+                    identificationMark1: $('#identificationMark1').val(),
+                    identificationMark2: $('#identificationMark2').val(),
+                    isHandicapped: $('#isHandicapped').is(':checked')
+                };
+            var employeeId = $('#employeeId6').val();
+            $.ajax({
+                type: "POST",
+                url: "/admin/employeeFromHealthData/"+employeeId,
+                contentType: "application/json",
+                data: JSON.stringify(formData),
+                success: function(response) {
+                    if (response.trim() === 'success') {
+                        form.reset();
+                        toastr.success('Successfully Save Health Data');
+                    } else {
+                        toastr.error('Something Went Wrong !!');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    toastr.error('Something Went Wrong !!');
+                }
+            });
+        }
+    });
+});
+
+
+$(document).ready(function() {
+    $('#employee-photograph-page').validate({
+        rules: {
+            image: {
+                required: true
+            },
+            sign: {
+                required: true
+            }
+        },
+        messages: {
+            image: {
+                required: "Please select an image."
+            },
+            sign: {
+                required: "Please select a signature."
+            }
+        },
+        submitHandler: function(form) {
+            var formData = new FormData($('#employee-photograph-page')[0]);
+            $.ajax({
+                url: '/admin/handleEmployeePhotograph',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response.trim() === 'success') {
+                        form.reset();
+                        toastr.success('Successfully Save Photograph Data');
+                    } else {
+                        toastr.error('Something Went Wrong !!');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    toastr.error('Something Went Wrong !!');
+                }
+
+            });
+        }
+    });
+});
+
+$(document).ready(function() {
+    $("#employee-attachment-page").validate({
+        rules: {
+            documentType: "required",
+            titleOfDocument: "required",
+            description: "required",
+            documentImage: "required"
+        },
+        messages: {
+            documentType: "Please select a document type",
+            titleOfDocument: "Please enter the title of the document",
+            description: "Please enter a description",
+            documentImage: "Please select a document image"
+        },
+        submitHandler: function(form) {
+            var formData = new FormData(form);
+            $.ajax({
+                url: "/admin/saveEmployeeDocument",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    if (response.trim() === 'success') {
+                        form.reset();
+                        toastr.success('Successfully Save Document Data');
+                    } else {
+                        toastr.error('Something Went Wrong !!');
+                    }
+
+                },
+                error: function(xhr, status, error) {
+                    toastr.error('Something Went Wrong !!');
+                }
+            });
+        }
+    });
+});
+
+
+
+$(document).ready(function () {
+
+    $("#employee-nominee-page").validate({
+        rules: {
+            priority: "required",
+            firstName: "required",
+            lastName: "required",
+            relation: "required",
+            gender: "required",
+            dateOfBirth: "required",
+            uidNo: "required",
+            panNo: "required",
+            contactNo: "required",
+            nomineeInvalidCondition: "required"
+        },
+        messages: {
+            priority: "Please enter priority",
+            firstName: "Please enter first name",
+            lastName: "Please enter last name",
+            relation: "Please select relation",
+            gender: "Please select gender",
+            dateOfBirth: "Please enter date of birth",
+            uidNo: "Please enter UID number",
+            panNo: "Please enter PAN number",
+            contactNo: "Please enter contact number",
+            nomineeInvalidCondition: "Please enter nominee invalid condition"
+        },
+        submitHandler: function (form) {
+            var formData = {
+                priority: $('#priorityN').val(),
+                firstName: $('#firstNameN').val(),
+                middleName: $('#middleNameN').val(),
+                lastName: $('#lastNameN').val(),
+                relation: $('#relationN').val(),
+                gender: $('#genderN').val(),
+                dateOfBirth: $('#dateOfBirthN').val(),
+                uidNo: $('#uidNoN').val(),
+                panNo: $('#panNo').val(),
+                contactNo: $('#contactNo').val(),
+                nomineeInvalidCondition: $('#nomineeInavalidCondition').val()
+            };
+            var employeeId = $('#employeeId5').val();
+            $.ajax({
+                url: "/admin/saveEmployeeNominee/"+employeeId,
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(formData),
+                success: function(response) {
+                    if (response.trim() === 'success') {
+                        form.reset();
+                        toastr.success('Successfully Save Nominee Data');
+                    } else {
+                        toastr.error('Something Went Wrong !!');
+                    }
+
+                },
+                error: function(xhr, status, error) {
+                    toastr.error('Something Went Wrong !!');
+                }
+            });
+        }
+    });
+});
+
+
+
+$(document).ready(function() {
+    $('.checkbox-data').click(function() {
+        if ($(this).is(':checked')) {
+            var $row = $(this).closest('tr');
+            var firstName = $row.find('td:eq(1)').text();
+            var occupation = $row.find('td:eq(2)').text();
+            var dateOfBirth = $row.find('td:eq(3)').text();
+            var relation = $row.find('td:eq(4)').text();
+            var gender = $row.find('td:eq(5)').text();
+            var maritalStatus = $row.find('td:eq(6)').text();
+
+
+            $('#firstNameN').val(firstName);
+            $('#occupationN').val(occupation);
+            $('#dateOfBirthN').val(dateOfBirth);
+            $('#relationN').val(relation);
+            $('#genderN').val(gender);
+            $('#maritalStatusN').val(maritalStatus);
+            $('#exampleModal2').modal('hide');
+        } else {
+            // Clear the form fields if the checkbox is unchecked
+            $('#firstNameN').val('');
+            $('#occupationN').val('');
+            $('#dateOfBirthN').val('');
+            $('#relationN').val('');
+            $('#genderN').val('');
+            $('#maritalStatusN').val('');
+            $('#exampleModal2').modal('hide');
+        }
     });
 });

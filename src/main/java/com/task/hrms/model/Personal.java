@@ -33,7 +33,7 @@ public class Personal {
     private String bankName;
     private String bankBranch;
     private long bankAcNo;
-    private long ifscCode;
+    private String ifscCode;
     private long bsrCode;
     private long passportNo;
     private String dateOfExpiry;

@@ -209,3 +209,8 @@
     border-radius: 5px;
     padding: 10px;
 }
+
+#blue-header {
+    background-color: #007bff;
+    color: #fff;
+}

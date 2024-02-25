@@ -25,6 +25,7 @@ public class Emergency {
     private String email;
     private String address;
     private boolean isEnable;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name= "emp_id")
     private Employee employee;

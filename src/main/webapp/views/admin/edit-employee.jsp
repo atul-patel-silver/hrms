@@ -41,11 +41,18 @@
                                            id="personal-Info-button">Personal</a></li>
                                     <li><a class="nav-link" style="cursor: pointer" id="contact-Info-Button">Contact</a>
                                     </li>
-                                    <li><a class="nav-link" href="#family">Family</a></li>
-                                    <li><a class="nav-link" href="#nominee">Nominee</a></li>
-                                    <li><a class="nav-link" href="#health">Health</a></li>
-                                    <li><a class="nav-link" href="#photograph">Photograph</a></li>
-                                    <li><a class="nav-link" href="#attachment">Attachment</a></li>
+                                    <li><a class="nav-link" style="cursor: pointer" id="family-Info-Button">Family</a>
+                                    </li>
+                                    <li><a class="nav-link" style="cursor: pointer" id="emergency-Info-Button">Emergency</a>
+                                    </li>
+                                    <li><a class="nav-link" style="cursor: pointer" id="nominee-Info-Button">Nominee</a>
+                                    </li>
+                                    <li><a class="nav-link" style="cursor: pointer" id="health-Info-Button">Health</a>
+                                    </li>
+                                    <li><a class="nav-link" style="cursor: pointer" id="photograph-Info-Button">Photograph</a>
+                                    </li>
+                                    <li><a class="nav-link" style="cursor: pointer" id="attachment-Info-Button">Attachment</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -640,8 +647,11 @@
                                                     <div>${add.address} ${add.city} ${add.state} ${add.country} ${add.pincode}</div>
                                                     <div class="card-footer text-end" style="margin-top: 120px">
                                                         <div class="form-submit-button">
-                                                            <i data-address_id="${add.id}"  class="fa fa-close delete-address" style="font-size:24px;border: 2px solid orange;border-radius: 50%;cursor: pointer"></i>
-                                                            <i class="fa fa-pencil" style="font-size:24px;border: 2px solid orange;border-radius: 50% ;cursor: pointer"></i>
+                                                            <i data-address_id="${add.id}"
+                                                               class="fa fa-close delete-address"
+                                                               style="font-size:24px;border: 2px solid orange;border-radius: 50%;cursor: pointer"></i>
+                                                            <i class="fa fa-pencil"
+                                                               style="font-size:24px;border: 2px solid orange;border-radius: 50% ;cursor: pointer"></i>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -784,6 +794,588 @@
 
                         </div>
                         <%--                        end contact page--%>
+
+
+                        <%--                        start family form--%>
+
+                        <div id="employee-family-form" style="margin-top: 20px;display: none">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h2>Family</h2>
+
+                            </div>
+                            <form id="employee-family-page">
+                                <input type="hidden" id="employeeId4" name="employeeId" value="${employee.id}"/>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input id="firstNameF" type="text" name="firstName" class="form-control"
+                                               aria-label="First Name">
+                                    </div>
+                                    <div class="col">
+                                        <label for="middleName" class="form-label">Middle Name</label>
+                                        <input id="middleNameF" type="text" name="middleName" class="form-control"
+                                               aria-label="Middle Name">
+                                    </div>
+                                    <div class="col">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input id="lastNameF" type="text" name="lastName" class="form-control"
+                                               aria-label="Last Name">
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+                                        <label for="relation" class="form-label">Relation</label>
+                                        <select id="relation" name="relation" class="form-select" aria-label="Relation">
+                                            <option value="parent">Parent</option>
+                                            <option value="sibling">Sibling</option>
+                                            <option value="spouse">Spouse</option>
+                                            <option value="child">Child</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                                        <input id="dateOfBirthF" type="date" name="dateOfBirth" class="form-control"
+                                               aria-label="Date of Birth">
+                                    </div>
+                                    <div class="col">
+                                        <label for="gender" class="form-label">Gender</label>
+                                        <select id="genderF" name="gender" class="form-select" aria-label="Gender">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+
+                                        <div class="form-check">
+                                            <label class="form-check-label">Is Nominee?</label>
+                                            <input class="form-check-input" type="checkbox" id="isNominee"
+                                                   name="isNominee" value="true">
+
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="maritalStatus" class="form-label">Marital Status</label>
+                                        <select id="maritalStatus" name="maritalStatus" class="form-select"
+                                                aria-label="Marital Status">
+                                            <option value="single">Single</option>
+                                            <option value="married">Married</option>
+                                            <option value="divorced">Divorced</option>
+                                            <option value="widowed">Widowed</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="occupation" class="form-label">Occupation</label>
+                                        <input id="occupation" type="text" name="occupation" class="form-control"
+                                               aria-label="Occupation">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+
+                                        <div class="form-check">
+                                            <label class="form-check-label">Is Dependent?</label>
+                                            <input class="form-check-input" type="checkbox" id="isDependent"
+                                                   name="isDependent" value="true">
+
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="contactDetails" class="form-label">Contact Details</label>
+                                        <input id="contactDetails" type="text" name="contactDetails"
+                                               class="form-control" aria-label="Contact Details">
+                                    </div>
+                                    <div class="col">
+                                        <label for="nationality" class="form-label">Nationality</label>
+                                        <select id="nationalityF" name="nationality" class="form-select"
+                                                aria-label="Nationality">
+                                            <option value="indian">Indian</option>
+                                            <option value="american">American</option>
+                                            <option value="british">British</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+
+                                        <div class="form-check">
+                                            <label class="form-check-label">Is Residing With?</label>
+                                            <input class="form-check-input" type="checkbox" id="isResidingWith"
+                                                   name="isResidingWith" value="true">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+
+                                        <div class="form-check">
+                                            <label class="form-check-label">Can be Contacted in Emergency?</label>
+                                            <input class="form-check-input" type="checkbox" id="contactInEmergency"
+                                                   name="contactInEmergency" value="true">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+
+                                        <div class="form-check">
+                                            <label class="form-check-label">Is Physically Disabled?</label>
+                                            <input class="form-check-input" type="checkbox" id="isPhysicallyDisabled"
+                                                   name="isPhysicallyDisabled" value="true">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+                                        <label for="address" class="form-label">Address</label>
+                                        <textarea id="addressF" name="address" class="form-control" rows="3"
+                                                  aria-label="Address"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col text-end">
+                                        <div class="form-submit-button">
+                                            <button class="btn btn-secondary" type="reset">Reset</button>
+                                            <button class="btn primary-bg" type="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <c:if test="${not empty families}">
+                                <div class="container">
+                                    <table class="table">
+                                        <thead id="blue-header"> <!-- Apply custom class for blue header -->
+                                        <tr>
+                                            <th>Sr No</th>
+                                            <th>First Name</th>
+                                            <th>Occupation</th>
+                                            <th>BirthDate</th>
+                                            <th>Relation</th>
+                                            <th>Gender</th>
+                                            <th>Marital Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach var="family" items="${families}" varStatus="loop">
+                                            <tr>
+                                                <td>${loop.index + 1}</td>
+                                                <td>${family.firstName}</td>
+                                                <td>${family.occupation}</td>
+                                                <td>${family.dateOfBirth}</td>
+                                                <td>${family.relation}</td>
+                                                <td>${family.gender}</td>
+                                                <td>${family.maritalStatus}</td>
+                                                <td><i data-family_id="${family.id}" class="fa fa-close delete-family"
+                                                       style="font-size:24px;border: 2px solid orange;border-radius: 50%;cursor: pointer"></i>
+                                                    <i class="fa fa-pencil"
+                                                       style="font-size:24px;border: 2px solid orange;border-radius: 50% ;cursor: pointer"></i>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </c:if>
+
+                        </div>
+                        <%--                        end family--%>
+
+                            <%--                        start emergancy  form--%>
+
+                            <div id="employee-emergancy-form" style="margin-top: 20px;display: none">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h2>Emergency</h2>
+
+                                </div>
+                                <form id="employee-emergancy-page">
+                                    <input type="hidden" id="employeeId9" name="employeeId" value="${employee.id}"/>
+
+                                    <div class="row g-3 mb-4">
+                                        <div class="col">
+                                            <label for="priority" class="form-label">Priority</label>
+                                            <input id="priority" type="text" name="priority" class="form-control" aria-label="Priority">
+                                        </div>
+                                        <div class="col">
+                                            <label for="firstName" class="form-label">First Name</label>
+                                            <input id="firstNameE" type="text" name="firstName" class="form-control" aria-label="First Name">
+                                        </div>
+                                        <div class="col">
+                                            <label for="middleName" class="form-label">Middle Name</label>
+                                            <input id="middleNameE" type="text" name="middleName" class="form-control" aria-label="Middle Name">
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row g-3 mb-4">
+                                        <div class="col">
+                                            <label for="lastName" class="form-label">Last Name</label>
+                                            <input id="lastNameE" type="text" name="lastName" class="form-control" aria-label="Last Name">
+                                        </div>
+                                        <div class="col">
+                                            <label for="relation" class="form-label">Relation</label>
+                                            <select id="relationE" name="relation" class="form-select" aria-label="Relation">
+                                                <option value="parent">Parent</option>
+                                                <option value="sibling">Sibling</option>
+                                                <option value="spouse">Spouse</option>
+                                                <option value="child">Child</option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label for="phoneNo" class="form-label">Phone Number</label>
+                                            <input id="phoneNo" type="number" name="phoneNo" class="form-control" aria-label="Phone Number">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row g-3 mb-4">
+                                        <div class="col">
+                                            <label for="mobileNo" class="form-label">Mobile Number</label>
+                                            <input id="mobileNo" type="number" name="mobileNo" class="form-control" aria-label="Mobile Number">
+                                        </div>
+                                        <div class="col">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input id="email" type="email" name="email" class="form-control" aria-label="Email">
+                                        </div>
+                                    </div>
+                                    <div class="row g-3 mb-4">
+                                        <div class="col">
+                                            <label for="address" class="form-label">Address</label>
+                                            <textarea id="addressE" name="address" class="form-control" rows="3" aria-label="Address"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-end">
+                                            <div class="form-submit-button">
+                                                <button class="btn btn-secondary" type="reset">Reset</button>
+                                                <button class="btn primary-bg" type="submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+                            </div>
+                            <%--                        end emergancy--%>
+
+                        <%--                        start nominee form--%>
+
+                        <div id="employee-nominee-form" style="margin-top: 20px;display: none">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h2>Nominee</h2>
+
+                                <h6 data-bs-toggle="modal" data-bs-target="#exampleModal2"
+                                     data-bs-whatever="@fat"
+                                     style="cursor:  pointer;color: blue"> Import Data Form Family Detail</h6>
+                            </div>
+                            <form id="employee-nominee-page">
+                                <input type="hidden" id="employeeId5" name="employeeId" value="${employee.id}"/>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+                                        <label for="priority" class="form-label">Priority</label>
+                                        <input id="priorityN" type="text" name="priority" class="form-control" aria-label="Priority">
+                                    </div>
+                                    <div class="col">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input id="firstNameN" type="text" name="firstName" class="form-control" aria-label="First Name">
+                                    </div>
+                                    <div class="col">
+                                        <label for="middleName" class="form-label">Middle Name</label>
+                                        <input id="middleNameN" type="text" name="middleName" class="form-control" aria-label="Middle Name">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input id="lastNameN" type="text" name="lastName" class="form-control" aria-label="Last Name">
+                                    </div>
+                                    <div class="col">
+                                        <label for="relation" class="form-label">Relation</label>
+                                        <select id="relationN" name="relation" class="form-select" aria-label="Relation">
+                                            <option value="parent">Parent</option>
+                                            <option value="sibling">Sibling</option>
+                                            <option value="spouse">Spouse</option>
+                                            <option value="child">Child</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="gender" class="form-label">Gender</label>
+                                        <select id="genderN" name="gender" class="form-select" aria-label="Gender">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+                                        <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                                        <input id="dateOfBirthN" type="date" name="dateOfBirth" class="form-control" aria-label="Date of Birth">
+                                    </div>
+                                    <div class="col">
+                                        <label for="uidNo" class="form-label">UID Number</label>
+                                        <input id="uidNoN" type="number" name="uidNo" class="form-control" aria-label="UID Number">
+                                    </div>
+                                    <div class="col">
+                                        <label for="panNo" class="form-label">PAN Number</label>
+                                        <input id="panNo" type="text" name="panNo" class="form-control" aria-label="PAN Number">
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+                                        <label for="contactNo" class="form-label">Contact Number</label>
+                                        <input id="contactNo" type="number" name="contactNo" class="form-control" aria-label="Contact Number">
+                                    </div>
+                                    <div class="col">
+                                        <label for="nomineeInavalidCondition" class="form-label">Nominee Invalid Condition</label>
+                                        <textarea id="nomineeInavalidCondition"  name="nomineeInavalidCondition" class="form-control" aria-label="Nominee Invalid Condition">
+                                        </textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col text-end">
+                                        <div class="form-submit-button">
+                                            <button class="btn btn-secondary" type="reset">Reset</button>
+                                            <button class="btn primary-bg" type="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <%--            model start--%>
+                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel2">Import Data Form family Detail</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <c:if test="${not empty families}">
+                                                <div class="container">
+                                                    <table class="table">
+                                                        <thead id="blue-header"> <!-- Apply custom class for blue header -->
+                                                        <tr>
+                                                            <th>Sr No</th>
+                                                            <th>First Name</th>
+                                                            <th>Occupation</th>
+                                                            <th>BirthDate</th>
+                                                            <th>Relation</th>
+                                                            <th>Gender</th>
+                                                            <th>Marital Status</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <c:forEach var="family" items="${families}" varStatus="loop">
+                                                            <tr>
+                                                                <td>${loop.index + 1}</td>
+                                                                <td>${family.firstName}</td>
+                                                                <td>${family.occupation}</td>
+                                                                <td>${family.dateOfBirth}</td>
+                                                                <td>${family.relation}</td>
+                                                                <td>${family.gender}</td>
+                                                                <td>${family.maritalStatus}</td>
+                                                                <td>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input checkbox-data" type="checkbox" value="" id="checkbox-data-${loop.index}" data-family-index="${loop.index}" >
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </c:if>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Close
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+<%--                            end--%>
+
+                        </div>
+                        <%--                        end nominee--%>
+
+                        <%--                        start health form--%>
+
+                        <div id="employee-health-form" style="margin-top: 20px;display: none">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h2>Health</h2>
+
+                            </div>
+                            <form id="employee-health-page">
+                                <input type="hidden" id="employeeId6" name="employeeId" value="${employee.id}"/>
+
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+                                        <label for="height" class="form-label">Height</label>
+                                        <input id="height" type="number" name="height" class="form-control" aria-label="Height">
+                                    </div>
+                                    <div class="col">
+                                        <label for="weight" class="form-label">Weight</label>
+                                        <input id="weight" type="number" name="weight" class="form-control" aria-label="Weight">
+                                    </div>
+                                    <div class="col">
+                                        <label for="bloodGroup" class="form-label">Blood Group</label>
+                                        <select id="bloodGroup" name="bloodGroup" class="form-select" aria-label="Blood Group">
+                                            <option value="A+">A+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B+">B+</option>
+                                            <option value="B-">B-</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                            <option value="O+">O+</option>
+                                            <option value="O-">O-</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+                                        <label for="identificationMark1" class="form-label">Identification Mark 1</label>
+                                        <input id="identificationMark1" type="text" name="identificationMark1" class="form-control" aria-label="Identification Mark 1">
+                                    </div>
+                                    <div class="col">
+                                        <label for="identificationMark2" class="form-label">Identification Mark 2</label>
+                                        <input id="identificationMark2" type="text" name="identificationMark2" class="form-control" aria-label="Identification Mark 2">
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-check-input" type="checkbox" id="isHandicapped" name="isHandicapped">
+                                        <label class="form-check-label" for="isHandicapped">Is handicapped?</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-end">
+                                        <div class="form-submit-button">
+                                            <button class="btn btn-secondary" type="reset">Reset</button>
+                                            <button class="btn primary-bg" type="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <%--                        end health--%>
+
+
+                        <%--                        start photograph form--%>
+
+                        <div id="employee-photograph-form" style="margin-top: 20px;display: none">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h2>Photograph</h2>
+
+                            </div>
+                            <form id="employee-photograph-page">
+                                <input type="hidden" id="employeeId7" name="employeeId" value="${employee.id}"/>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+                                        <label for="image" class="form-label">Image</label>
+                                        <input id="image" type="file" name="image" class="form-control" accept="image/*" aria-label="Image">
+                                    </div>
+                                    <div class="col">
+                                        <label for="sign" class="form-label">Signature</label>
+                                        <input id="sign" type="file" name="sign" class="form-control" accept="image/*" aria-label="Signature">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col text-end">
+                                        <div class="form-submit-button">
+                                            <button class="btn btn-secondary" type="reset">Reset</button>
+                                            <button class="btn primary-bg" type="submit">Continue</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <%--                        end photograph--%>
+
+
+                        <%--                        start attachment form--%>
+
+                        <div id="employee-attachment-form" style="margin-top: 20px;display: none">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h2>Attachment</h2>
+
+                            </div>
+                            <form id="employee-attachment-page">
+                                <input type="hidden" id="employeeId8" name="employeeId" value="${employee.id}"/>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+                                        <label for="documentType" class="form-label">Document Type</label>
+                                        <select class="form-select" id="documentType" name="documentType">
+                                            <option value="DrivingLicence">Driving Licence</option>
+                                            <option value="VoterId">Voter Id</option>
+                                            <option value="AdharCard">Adhar Card</option>
+                                            <option value="Passport">Passport</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="titleOfDocument" class="form-label">Title of Document</label>
+                                        <input type="text" class="form-control" id="titleOfDocument" name="titleOfDocument">
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="description" class="form-label">Document Description</label>
+                                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col">
+                                        <label for="documentImage" class="form-label">Document Image</label>
+                                        <input type="file" class="form-control" id="documentImage" name="documentImage" accept="image/*">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col text-end">
+                                        <div class="form-submit-button">
+                                            <button class="btn btn-secondary" type="reset">Reset</button>
+                                            <button class="btn primary-bg" type="submit">Continue</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <%--                        end attachment--%>
+
                     </div>
                 </div>
 

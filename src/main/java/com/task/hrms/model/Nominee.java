@@ -23,10 +23,29 @@ public class Nominee {
     private String gender;
     private LocalDate dateOfBirth;
     private Long uidNo;
-    private Long panNo;
+    private String panNo;
     private Long contactNo;
-    private String nomineeInavalidCondition;
+    private String nomineeInvalidCondition;
     private boolean isEnable;
+
+    @Override
+    public String toString() {
+        return "Nominee{" +
+                "priority='" + priority + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", relation='" + relation + '\'' +
+                ", gender='" + gender + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", uidNo=" + uidNo +
+                ", panNo=" + panNo +
+                ", contactNo=" + contactNo +
+                ", nomineeInavalidCondition='" + nomineeInvalidCondition + '\'' +
+                ", isEnable=" + isEnable +
+                '}';
+    }
+
     @ManyToOne
     @JoinColumn(name="emp_id")
     private Employee employee;

@@ -33,6 +33,7 @@ public class Family {
     private String address;
 
     private boolean isEnable;
+
     @ManyToOne
     @JoinColumn(name="emp_id")
     private Employee employee;

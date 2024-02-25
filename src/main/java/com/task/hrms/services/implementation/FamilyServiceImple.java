@@ -37,6 +37,6 @@ public class FamilyServiceImple implements FamilyService {
 
     @Override
     public List<Family> findByEmployeeId(Long id) {
-        return null;
+        return this.familyRepository.findFamilyWithEmpId(id);
     }
 }
