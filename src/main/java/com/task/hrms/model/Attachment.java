@@ -19,7 +19,7 @@ public class Attachment {
     private String titleOfDocument;
     private String description;
     private String documentImage;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "emp_id")
     private Employee employee;
 

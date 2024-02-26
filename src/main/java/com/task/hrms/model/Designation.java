@@ -27,4 +27,7 @@ public class Designation {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "designation")
     private List<Employee> employees;
 
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "designation")
+    private List<Job>  jobs;
+
 }

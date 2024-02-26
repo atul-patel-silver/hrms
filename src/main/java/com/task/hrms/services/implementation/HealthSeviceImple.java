@@ -3,13 +3,14 @@ package com.task.hrms.services.implementation;
 import com.task.hrms.model.Health;
 import com.task.hrms.repository.HealthRepository;
 import com.task.hrms.services.HealthService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class HealthSeviceImple implements HealthService {
-
+@Autowired
     private HealthRepository healthRepository;
 
     @Override

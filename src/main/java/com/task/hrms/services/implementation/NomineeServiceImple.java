@@ -35,4 +35,10 @@ public class NomineeServiceImple implements NomineeService {
         nominee.setEnable(false);
         this.nomineeRepository.save(nominee);
     }
+
+    @Override
+    public List<Nominee> findNomineeForEmployee(Long id) {
+        return this
+                .nomineeRepository.findNomineeForEmployee(id);
+    }
 }

@@ -13,4 +13,6 @@ public interface NomineeService {
     List<Nominee> findAll();
 
     void delete(Long id);
+
+    List<Nominee> findNomineeForEmployee(Long id);
 }

@@ -1,5 +1,6 @@
 package com.task.hrms.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -73,8 +74,24 @@ public class Employee {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "employee")
     private List<Nominee> nominees;
 
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "employee")
+    private List<Qualification> qualifications;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "employee")
+    private List<Attachment> attachments;
+
     @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
     private Personal personal;
+
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
+    private Job job;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "employee")
+    @JsonBackReference
+    private List<ReportingOfficer> reportingOfficers;
+
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
+    private PreviousEmployment previousEmployment;
 
 
     @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
