@@ -22,7 +22,6 @@
         </ul>
     </div>
 
-    <br/>
 
 
     <div class="middle-section-add">

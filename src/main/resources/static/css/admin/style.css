@@ -3,8 +3,6 @@
     background-color: #FFA726 ;
 
 }
-
-
         .navbar {
             background-color: white;
             color: black;
@@ -75,7 +73,6 @@
         .sidebar-employee {
             margin: 20px;
             width: 300px;
-
             border: 2px solid #42A5F5;
             border-radius: 10px;
 
@@ -93,21 +90,19 @@
             color: black;
         }
 
-        .sidebar-employee ul li a:hover {
-            color: white;
-            border-radius: 5px;
+.sidebar-employee ul li a:hover {
+    color: #FAFAFA;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #42A5F5;
+}
 
-            background-color: #42A5F5;
-
-        }
-        .sidebar-employee ul li a {
-            text-decoration: none;
+.sidebar-employee ul li a {
+    text-decoration: none;
             color: #333;
         }
 
-        .sidebar-employee ul li a:hover {
-            color: #555;
-        }
+
 
         .middle-section-add {
             margin-right: 25px;
