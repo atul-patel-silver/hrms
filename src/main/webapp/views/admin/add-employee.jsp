@@ -42,14 +42,14 @@
                             </a>
                             <div class="collapse" id="employee-info">
                                 <ul class="nav flex-column ml-3">
-                                    <li><a  class="nav-link" href="/admin/addEmployee">Employee</a></li>
-                                    <li><a  class="nav-link disabled" href="#personal">Personal</a></li>
-                                    <li><a  class="nav-link disabled" href="#contact">Contact</a></li>
-                                    <li><a  class="nav-link disabled" href="#family">Family</a></li>
-                                    <li><a  class="nav-link disabled" href="#nominee">Nominee</a></li>
-                                    <li><a  class="nav-link disabled" href="#health">Health</a></li>
-                                    <li><a  class="nav-link disabled" href="#photograph">Photograph</a></li>
-                                    <li><a  class="nav-link disabled" href="#attachment">Attachment</a></li>
+                                    <li><a  class="nav-link" style="cursor: pointer" href="/admin/addEmployee">Employee</a></li>
+                                    <li><a  class="nav-link disabled" style="cursor: pointer" href="#personal">Personal</a></li>
+                                    <li><a  class="nav-link disabled" style="cursor: pointer" href="#contact">Contact</a></li>
+                                    <li><a  class="nav-link disabled" style="cursor: pointer" href="#family">Family</a></li>
+                                    <li><a  class="nav-link disabled" style="cursor: pointer" href="#nominee">Nominee</a></li>
+                                    <li><a  class="nav-link disabled" style="cursor: pointer" href="#health">Health</a></li>
+                                    <li><a  class="nav-link disabled" style="cursor: pointer" href="#photograph">Photograph</a></li>
+                                    <li><a  class="nav-link disabled" style="cursor: pointer" href="#attachment">Attachment</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -59,8 +59,16 @@
                                 <i style="margin-left: 1px" class=" fa fa-plus"></i></a>
                             <div class="collapse" id="employment-info">
                                 <ul class="nav flex-column ml-3">
-                                    <li><a  class="nav-link disabled" href="#personal">Personal</a></li>
-                                    <li><a  class="nav-link disabled" href="#contact">Contact</a></li>
+                                    <li><a class="nav-link disabled"  style="cursor: pointer"
+                                          >Allowance Declaration</a></li>
+                                    <li><a class="nav-link disabled" style="cursor: pointer">Job</a>
+                                    </li>
+                                    <li><a class="nav-link disabled" style="cursor: pointer">Reporting
+                                        Officer</a></li>
+                                    <li><a class="nav-link disabled" style="cursor: pointer">Salary</a>
+                                    </li>
+                                    <li><a class="nav-link disabled" style="cursor: pointer">Previous
+                                        Employment</a></li>
 
                                 </ul>
                             </div>
@@ -71,9 +79,8 @@
                                 <i style="margin-left: 1px" class=" fa fa-plus"></i></a>
                             <div class="collapse" id="qualification-info">
                                 <ul class="nav flex-column ml-3">
-                                    <li><a  class="nav-link disabled" href="#personal">Personal</a></li>
-                                    <li><a  class="nav-link disabled" href="#contact">Contact</a></li>
-                                    <li><a  class="nav-link disabled" href="#family">Family</a></li>
+                                    <li><a class="nav-link disabled" style="cursor: pointer" id="education-Info-Button">Education
+                                        Qualification</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -87,15 +94,15 @@
 
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h2>Employee</h2>
-                            <button class="btn primary-bg">Download Excel Template</button>
+                            <a  href="/admin/get-excel-file" class="btn primary-bg">Download Excel Template</a>
                         </div>
 
                         <div class="excel-file">
-                            <form>
+                            <form id="excel-file">
                                 <label for="file-upload" class="custom-file-upload">
                                     <i class="fa fa-cloud-upload"></i> Upload File
                                 </label>
-                                <input id="file-upload" type="file"/>
+                                <input id="file-upload" type="file" id="excel-file-data" name="excel-file-data"/>
                                 <input style="margin-left: 15px" type="submit" class="btn primary-bg" value="Process">
                             </form>
 

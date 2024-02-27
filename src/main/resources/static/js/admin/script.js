@@ -2114,3 +2114,40 @@ $(document).ready(function () {
         }
     });
 });
+
+
+//excel file data
+$(document).ready(function(){
+    $('#excel-file').validate({
+        rules: {
+            'excel-file-data': {
+                required: true,
+            }
+        },
+        messages: {
+            'excel-file-data': {
+                required: "Please select a file."
+            }
+        },
+        submitHandler: function(form) {
+            $.ajax({
+                url: '/admin/upload-excel',
+                type: 'POST',
+                data: new FormData(form),
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    if (response.trim() === 'success') {
+                        form.reset();
+                        toastr.success('Successfully Upload Excel File');
+                    } else {
+                        toastr.error(response);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    toastr.error('Something Went Wrong !!');
+                }
+            });
+        }
+    });
+});

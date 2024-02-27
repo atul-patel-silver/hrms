@@ -28,23 +28,7 @@ public class Nominee {
     private String nomineeInvalidCondition;
     private boolean isEnable;
 
-    @Override
-    public String toString() {
-        return "Nominee{" +
-                "priority='" + priority + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", relation='" + relation + '\'' +
-                ", gender='" + gender + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", uidNo=" + uidNo +
-                ", panNo=" + panNo +
-                ", contactNo=" + contactNo +
-                ", nomineeInavalidCondition='" + nomineeInvalidCondition + '\'' +
-                ", isEnable=" + isEnable +
-                '}';
-    }
+
 
     @ManyToOne
     @JoinColumn(name="emp_id")

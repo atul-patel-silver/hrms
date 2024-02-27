@@ -4,7 +4,10 @@ import com.task.hrms.helper.FileHelper;
 import com.task.hrms.model.*;
 import com.task.hrms.payload.EmployeeJob;
 import com.task.hrms.services.*;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayOutputStream;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -60,6 +64,8 @@ public class AdminController {
     private ReportingOfficerService reportingOfficerService;
     @Autowired
     private PreviousEmploymentService previousEmploymentService;
+    @Autowired
+    private ExcelService excelService;
 
     @Autowired
     private QualificationService qualificationService;
@@ -69,7 +75,58 @@ public class AdminController {
     public String adminDashboard() {
         return "admin/dashboard";
     }
+//download Excel file
 
+    @GetMapping("/get-excel-file")
+    public ResponseEntity<byte[]> complainExcelFile() throws Exception{
+
+        Workbook workbook = excelService.createExcel();
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        workbook.write(outputStream);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        headers.setContentDispositionFormData("attachment","employee_fill_up.xlsx");
+
+        return ResponseEntity
+                .ok()
+                .headers(headers)
+                .body(outputStream.toByteArray());
+    }
+
+
+    //upload excel file
+
+    @PostMapping("/upload-excel")
+    @ResponseBody
+    public String handleFileUpload(@RequestParam("excel-file-data") MultipartFile file) {
+        String fileName = file.getOriginalFilename();
+        try{
+            if (file.isEmpty()) {
+                return "Please select a file to upload.";
+            }
+
+            else if(!fileName.endsWith(".xls") && !fileName.endsWith(".xlsx")) {
+                return "Please upload an Excel file.";
+            }
+            else {
+                boolean b = FileHelper.uploadFile("/static/excel-file", file);
+                if(b){
+                    return "success";
+                }
+                else {
+                    return "Something Went Wrong Tray Again !!";
+                }
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return "error";
+        }
+
+
+    }
     //show all employee
     @GetMapping("/employeeList")
     public String showAllEmployee(Model model) {
