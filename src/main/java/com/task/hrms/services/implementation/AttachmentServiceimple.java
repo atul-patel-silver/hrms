@@ -34,4 +34,9 @@ public class AttachmentServiceimple implements AttachmentService {
         attachment.setEnable(false);
         this.attachmentRepository.save(attachment);
     }
+
+    @Override
+    public List<Attachment> findByEmployeeId(Long id) {
+        return this.attachmentRepository.findByEmployeeId(id);
+    }
 }

@@ -62,8 +62,8 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
     private Contact contact;
 
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
-    private Emergency emergency;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "employee")
+    private List<Emergency> emergencies;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "employee")
     private List<Family> families;
@@ -86,9 +86,9 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
     private Job job;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "employee")
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
     @JsonBackReference
-    private List<ReportingOfficer> reportingOfficers;
+    private ReportingOfficer reportingOfficer;
 
     @OneToOne(cascade = CascadeType.ALL,mappedBy = "employee")
     private PreviousEmployment previousEmployment;

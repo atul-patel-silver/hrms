@@ -34,4 +34,9 @@ public class EmergancyServiceImple implements EmergencyService {
         emergency.setEnable(false);
         this.emergencyRepository.save(emergency);
     }
+
+    @Override
+    public List<Emergency> findEmergenciesByEmployeeId(Long id) {
+        return this.emergencyRepository.findEmergenciesByEmployeeId(id);
+    }
 }

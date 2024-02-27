@@ -23,20 +23,6 @@ public class Health {
     private boolean isHandicapped;
     private boolean isEnable;
 
-    @Override
-    public String toString() {
-        return "Health{" +
-                "id=" + id +
-                ", height=" + height +
-                ", weight=" + weight +
-                ", bloodGroup='" + bloodGroup + '\'' +
-                ", identificationMark1='" + identificationMark1 + '\'' +
-                ", identificationMark2='" + identificationMark2 + '\'' +
-                ", isHandicapped=" + isHandicapped +
-                ", isEnable=" + isEnable +
-                '}';
-    }
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "emp_id")
     private Employee employee;

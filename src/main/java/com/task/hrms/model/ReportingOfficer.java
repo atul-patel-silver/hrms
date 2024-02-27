@@ -27,7 +27,7 @@ public class ReportingOfficer {
     private boolean isEnable;
 
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "emp_id")
     private Employee employee;
 

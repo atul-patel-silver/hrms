@@ -6,6 +6,7 @@ import com.task.hrms.payload.EmployeeJob;
 import com.task.hrms.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -54,6 +55,8 @@ public class AdminController {
     @Autowired
     private NomineeService nomineeService;
     @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+    @Autowired
     private ReportingOfficerService reportingOfficerService;
     @Autowired
     private PreviousEmploymentService previousEmploymentService;
@@ -85,6 +88,37 @@ public class AdminController {
         model.addAttribute("departments", departments);
 
         return "admin/add-employee";
+    }
+
+
+    @GetMapping("/viewEmployee/{id}")
+    public String viewEmployeeDetail(@PathVariable("id")Long id,Model model){
+        try{
+            Employee employee = this.employeeService.findById(id);
+            model.addAttribute("employee",employee);
+            List<Address> addresses = this.addressService.findByEmployeeId(id);
+            model.addAttribute("addresses", addresses);
+
+            List<Nominee> nominees = this.nomineeService.findNomineeForEmployee(id);
+            model.addAttribute("nominees", nominees);
+
+            List<Emergency> emergencies = this.emergencyService.findEmergenciesByEmployeeId(id);
+            model.addAttribute("emergencies", emergencies);
+
+            List<Attachment> attachments = this.attachmentService.findByEmployeeId(id);
+            model.addAttribute("attachments", attachments);
+            ReportingOfficer reportingOfficer = this.reportingOfficerService.findWithEmployee(id);
+            model.addAttribute("reportingOfficer", reportingOfficer);
+
+
+            List<Family> families = this.familyService.findByEmployeeId(id);
+            model.addAttribute("families", families);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return "admin/employee-detail";
     }
 
     //department page
@@ -365,9 +399,14 @@ public class AdminController {
             if (this.loginService.findByEmployeeCode("STTP_" + code2.trim()) == null) {
                 Designation designation = this.designationService.findById(Long.valueOf(designationId));
                 Department department = this.departmentService.findById(Long.valueOf(departmentId));
-                Login login = Login.builder().role("ROLE_EMPLOYEE").employeeCode("STTP_" + code2.trim()).isEnable(false).build();
+                Login login = Login.builder().role("ROLE_EMPLOYEE").employeeCode("STTL_" + code2.trim()).isEnable(false).build();
+
+
                 Login save = this.loginService.save(login);
-                Employee build = Employee.builder().panNumber(panNumber).oldEmployeeCode(oldEmployeeCode).dateOfAppoinment(LocalDate.parse(dateOfAppointment)).bioMetricId(bioMetricId).salutation(salutation).department(department).firstName(firstName).middleName(middleName).lastName(lastName).unit(unit).designation(designation).isGazetted(isGazetted).employeeEligibleFor(employeeEligibleFor).isUnderGratuityAct(isUnderGratuityAct).login(save).isEnable(true).build();
+                Login save2 = this.loginService.findById(save.getId());
+                login.setPassword(this.passwordEncoder.encode(login.getEmployeeCode()+"@123"));
+                Login save3 = this.loginService.save(save2);
+                Employee build = Employee.builder().panNumber(panNumber).oldEmployeeCode(oldEmployeeCode).dateOfAppoinment(LocalDate.parse(dateOfAppointment)).bioMetricId(bioMetricId).salutation(salutation).department(department).firstName(firstName).middleName(middleName).lastName(lastName).unit(unit).designation(designation).isGazetted(isGazetted).employeeEligibleFor(employeeEligibleFor).isUnderGratuityAct(isUnderGratuityAct).login(save3).isEnable(true).build();
                 Employee save1 = this.employeeService.save(build);
                 Map<String, String> data = new HashMap<>();
                 data.put("isSuccess", "success");
@@ -438,7 +477,8 @@ public class AdminController {
             model.addAttribute("designations", designations);
             List<Department> departments = this.departmentService.findAllEnable();
             model.addAttribute("departments", departments);
-
+            List<Attachment> attachments = this.attachmentService.findByEmployeeId(id);
+            model.addAttribute("attachments", attachments);
             List<Nominee> nominees = this.nomineeService.findNomineeForEmployee(id);
             model.addAttribute("nominees", nominees);
 

@@ -13,4 +13,6 @@ public interface AttachmentService {
     List<Attachment> findAll();
 
     void delete(Long id);
+
+    List<Attachment> findByEmployeeId(Long id);
 }

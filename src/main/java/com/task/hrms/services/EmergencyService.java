@@ -13,4 +13,6 @@ public interface EmergencyService {
     List<Emergency> findAll();
 
     void delete(Long id);
+
+    List<Emergency> findEmergenciesByEmployeeId(Long id);
 }

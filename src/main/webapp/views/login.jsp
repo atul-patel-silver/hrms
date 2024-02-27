@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
 
@@ -24,13 +24,6 @@
             <c:if test="${not empty param.logout}">
             <div class="alert alert-success">
                 <div>You have been logged out!!</div>
-            </div>
-            </c:if>
-            <c:if test="${not empty param.change}">
-            <div class="alert alert-success">
-
-                    <p><c:out value="${param.change}" /></p>
-
             </div>
             </c:if>
 

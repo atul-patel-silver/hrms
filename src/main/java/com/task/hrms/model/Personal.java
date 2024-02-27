@@ -15,7 +15,7 @@ public class Personal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;;
+    private Long id;;
     private String gender;
     private String  marriageStatus;
     private String dateOfBirth;

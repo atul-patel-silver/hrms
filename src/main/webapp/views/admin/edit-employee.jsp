@@ -16,9 +16,11 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Employees</a></li>
-            <li><a href="#">Leave Requests</a></li>
+            <li><a href="/admin/dashboard">Dashboard</a></li>
+            <li><a href="/admin/employeeList">Employees</a></li>
+            <li><a href="#">Job Master</a></li>
+            <li><a href="#">Pay Master</a></li>
+            <li><a href="#">Personal Master</a></li>
         </ul>
     </div>
 
@@ -326,6 +328,7 @@
 
                             </div>
                             <form id="employee-personal-page">
+
                                 <input type="hidden" id="employeeId" name="employeeId" value="${employee.id}"/>
                                 <div class="row g-3 mb-4">
                                     <div class="col-sm">
@@ -1087,8 +1090,8 @@
                             <c:if test="${not empty families}">
                                 <div class="container">
                                     <table class="table">
-                                        <thead id="blue-header"> <!-- Apply custom class for blue header -->
-                                        <tr>
+                                        <thead>
+                                        <tr class="table-primary">
                                             <th>Sr No</th>
                                             <th>First Name</th>
                                             <th>Occupation</th>
@@ -1201,19 +1204,12 @@
                                     <div class="col text-end">
                                         <div class="form-submit-button">
                                             <button class="btn btn-secondary" type="reset">Reset</button>
-                                            <c:choose>
-                                                <c:when test="${empty employee.emergency}">
-                                                    <button id="submitButton" class="btn primary-bg"
+
+                                                    <button id="submitButton5" class="btn primary-bg"
                                                             type="submit">Save And Next
                                                     </button>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <button id="submitButton" class="btn primary-bg"
-                                                            type="button" disabled>Save And Next
-                                                    </button>
-                                                    <div class="text-muted">Already Submit data</div>
-                                                </c:otherwise>
-                                            </c:choose>
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -1347,9 +1343,9 @@
                                             <c:if test="${not empty families}">
                                                 <div class="container">
                                                     <table class="table">
-                                                        <thead id="blue-header">
-                                                        <!-- Apply custom class for blue header -->
-                                                        <tr>
+                                                        <thead >
+
+                                                        <tr class="table-primary">
                                                             <th>Sr No</th>
                                                             <th>First Name</th>
                                                             <th>Occupation</th>
@@ -1402,8 +1398,8 @@
                             <c:if test="${not empty nominees}">
                                 <div class="container">
                                     <table class="table">
-                                        <thead id="blue-header"> <!-- Apply custom class for blue header -->
-                                        <tr>
+                                        <thead > <!-- Apply custom class for blue header -->
+                                        <tr class="table-primary">
                                             <th>Sr No</th>
                                             <th>Name</th>
                                             <th>Relation</th>
@@ -1531,14 +1527,20 @@
                                     <div class="col">
                                         <label for="image" class="form-label">Image</label>
                                         <input id="image" type="file" name="image" class="form-control"
-                                               accept="image/*"
-                                               aria-label="Image">
+                                               accept="image/*" aria-label="Image" onchange="previewImage(this)">
+                                        <div class="form-text">
+                                            Only jpg/jpeg/png allowed, Minimum dimension width 200px and height 100px. Maximum file size 500KB.
+                                        </div>
+                                        <div id="image-preview" class="mt-2"></div>
                                     </div>
                                     <div class="col">
                                         <label for="sign" class="form-label">Signature</label>
                                         <input id="sign" type="file" name="sign" class="form-control"
-                                               accept="image/*"
-                                               aria-label="Signature">
+                                               accept="image/*" aria-label="Signature" onchange="previewImage(this)">
+                                        <div class="form-text">
+                                            Only jpg/jpeg/png allowed, Minimum dimension width 200px and height 100px. Maximum file size 500KB.
+                                        </div>
+                                        <div id="sign-preview" class="mt-2"></div>
                                     </div>
                                 </div>
 
@@ -1547,15 +1549,11 @@
                                         <div class="form-submit-button">
                                             <button class="btn btn-secondary" type="reset">Reset</button>
                                             <c:choose>
-                                                <c:when test="${empty employee.emergency}">
-                                                    <button id="submitButton" class="btn primary-bg"
-                                                            type="submit">Save And Next
-                                                    </button>
+                                                <c:when test="${empty employee.photograph}">
+                                                    <button id="submitButton" class="btn primary-bg" type="submit">Save And Next</button>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <button id="submitButton" class="btn primary-bg"
-                                                            type="button" disabled>Save And Next
-                                                    </button>
+                                                    <button id="submitButton" class="btn primary-bg" type="button" disabled>Save And Next</button>
                                                     <div class="text-muted">Already Submit data</div>
                                                 </c:otherwise>
                                             </c:choose>
@@ -1590,26 +1588,27 @@
                                     </div>
 
                                     <div class="col">
-                                        <label for="titleOfDocument" class="form-label">Title of
-                                            Document</label>
-                                        <input type="text" class="form-control" id="titleOfDocument"
-                                               name="titleOfDocument">
+                                        <label for="titleOfDocument" class="form-label">Title of Document</label>
+                                        <input type="text" class="form-control" id="titleOfDocument" name="titleOfDocument">
                                     </div>
 
                                     <div class="col">
                                         <label for="description" class="form-label">Document Description</label>
-                                        <textarea class="form-control" id="description" name="description"
-                                                  rows="3"></textarea>
+                                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row g-3 mb-4">
                                     <div class="col">
                                         <label for="documentImage" class="form-label">Document Image</label>
-                                        <input type="file" class="form-control" id="documentImage"
-                                               name="documentImage"
-                                               accept="image/*">
+                                        <input type="file" class="form-control" id="documentImage" name="documentImage" accept="image/*" onchange="previewImage2(this)">
+                                        <div id="passwordHelpBlock" class="form-text">
+                                            Only jpg/jpeg/png allowed, Minimum dimension width 200px and height 100px. Maximum file size 500KB.
+                                        </div>
                                     </div>
+
+                                    <div id="image-preview2" class="col"></div>
+
                                 </div>
 
                                 <div class="row">
@@ -1621,6 +1620,34 @@
                                     </div>
                                 </div>
                             </form>
+
+
+                            <c:if test="${not empty attachments}" >
+                                <div class="container mt-5" style="margin-bottom: 15px">
+                                    <table  class="table">
+                                        <thead style="background-color: #4b4b4b; color: white;">
+                                        <tr class="table-primary">
+                                            <th>Sr No</th>
+                                            <th>Document Image</th>
+                                            <th>Document Type</th>
+                                            <th>Title Of Document</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach var="atta" items="${attachments}" varStatus="loop">
+                                            <tr>
+                                                <td>${loop.index + 1}</td>
+                                                <td><img style="height: 100px;width: 150px;border-radius: 50%"
+                                                         src="/image/attachment/${atta.documentImage}" class="img-fluid" alt="Employee Image"></td>
+                                                <td>${atta.documentType}</td>
+                                                <td>${atta.titleOfDocument}</td>
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </c:if>
+
 
                         </div>
                         <%--                        end attachment--%>
@@ -2032,8 +2059,8 @@
                             <c:if test="${not empty reportingOfficer}">
                                 <div class="container">
                                     <table class="table">
-                                        <thead id="blue-header"> <!-- Apply custom class for blue header -->
-                                        <tr>
+                                        <thead>
+                                        <tr class="table-primary">
                                             <th>Sr No</th>
                                             <th>Start Date</th>
                                             <th>End Date</th>
@@ -2513,6 +2540,34 @@
     }
 </script>
 
+<script>
+    function previewImage(input) {
+        var previewId = input.id + '-preview';
+        var preview = document.getElementById(previewId);
+        var file = input.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            preview.innerHTML = '<img style="height: 500px;width: 500px" src="' + e.target.result + '" class="img-thumbnail" alt="Preview Image">';
+        };
+
+        reader.readAsDataURL(file);
+    }
+</script>
+
+<script>
+    function previewImage2(input) {
+        var preview = document.getElementById('image-preview2');
+        var file = input.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            preview.innerHTML = '<img style="height: 200px;width: 200px" src="' + e.target.result + '" class="img-thumbnail" alt="Preview Image">';
+        };
+
+        reader.readAsDataURL(file);
+    }
+</script>
 
 </body>
 </html>

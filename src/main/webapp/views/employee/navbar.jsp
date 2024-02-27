@@ -38,18 +38,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#/admin/dashboard">HRMS</a>
+                    <a class="nav-link active" aria-current="page" href="/employee/dashboard">HRMS</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Master
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/admin/manage-designation">Designation</a></li>
-                        <li><a class="dropdown-item" href="/admin/manage-department">Department</a></li>
 
-                    </ul>
-                </li>
             </ul>
             <div class="d-flex">
                 <a class="nav-link" href="#" style="margin:10px">

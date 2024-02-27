@@ -35,6 +35,5 @@ public class HrmsApplication implements CommandLineRunner {
 		else {
 
 		}
-
 	}
 }

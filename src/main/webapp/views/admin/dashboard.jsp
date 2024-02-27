@@ -18,10 +18,11 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Employees</a></li>
-            <li><a href="#">Leave Requests</a></li>
-            <!-- Add more sidebar items as needed -->
+            <li><a href="/admin/dashboard">Dashboard</a></li>
+            <li><a href="/admin/employeeList">Employees</a></li>
+            <li><a href="#">Job Master</a></li>
+            <li><a href="#">Pay Master</a></li>
+            <li><a href="#">Personal Master</a></li>
         </ul>
     </div>
 

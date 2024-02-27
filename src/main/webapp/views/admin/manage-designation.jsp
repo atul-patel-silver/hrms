@@ -7,16 +7,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HRMS System</title>
+    <title>Manage | Designation</title>
 </head>
 <body>
 <div class="flex-container-add">
 
     <div class="sidebar">
         <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Employees</a></li>
-            <li><a href="#">Leave Requests</a></li>
+            <li><a href="/admin/dashboard">Dashboard</a></li>
+            <li><a href="/admin/employeeList">Employees</a></li>
+            <li><a href="#">Job Master</a></li>
+            <li><a href="#">Pay Master</a></li>
+            <li><a href="#">Personal Master</a></li>
         </ul>
     </div>
 
@@ -41,7 +43,7 @@
                         <div class="table-responsive p-5">
                             <table id="designation-table" class="table no-wrap user-table mb-0">
                                 <thead>
-                                <tr>
+                                <tr class="table-primary">
                                     <th scope="col" class="border-0 text-uppercase font-medium pl-4">No</th>
                                     <th scope="col" class="border-0 text-uppercase font-medium">Designation Title</th>
                                     <th scope="col" class="border-0 text-uppercase font-medium">Description</th>

@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HRMS System</title>
+    <title>Employee List</title>
     <style>
 
     </style>
@@ -18,9 +18,11 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Employees</a></li>
-            <li><a href="#">Leave Requests</a></li>
+            <li><a href="/admin/dashboard">Dashboard</a></li>
+            <li><a href="/admin/employeeList">Employees</a></li>
+            <li><a href="#">Job Master</a></li>
+            <li><a href="#">Pay Master</a></li>
+            <li><a href="#">Personal Master</a></li>
         </ul>
     </div>
 
@@ -32,7 +34,7 @@
                     <h2 style="color: #42A5F5">Employee Information</h2>
                 </div>
                 <div class="col text-end">
-                    <a class="btn" style="color: white" href="/admin/addEmployee">
+                    <a class="btn primary-bg" style="color: white" href="/admin/addEmployee">
                         <i class="fa fa-plus"></i> Add Employee
                     </a>
                 </div>
@@ -45,11 +47,11 @@
                     <div class="card container" style="margin-right: 100px">
                         <div class="table-responsive p-5">
 
-                            <table id="employee-table" class="table no-wrap user-table mb-0">
+                            <table id="employee-table" class="table no-wrap user-table mb-0 mt-2">
                                 <button class="btn btn-outline-info btn-circle btn-lg btn-circle mb-5 " id="refresh"><i
                                         class="fa fa-refresh"></i></button>
-                                <thead class="primary-bg">
-                                <tr >
+                                <thead>
+                                <tr class="table-primary">
                                     <th scope="col" class="border-0 text-uppercase font-medium pl-4">Employee</th>
                                     <th scope="col" class="border-0 text-uppercase font-medium">Code</th>
                                     <th scope="col" class="border-0 text-uppercase font-medium">Designation</th>
@@ -73,9 +75,9 @@
                                                 <i class="fa fa-edit"></i>
                                             </a>
 
-                                            <a type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+                                            <a type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" href="/admin/viewEmployee/${emp.id}">
 
-                                                <i class="fa fa-trash"></i>
+                                                <i class="fa fa-eye"></i>
                                             </a>
 
                                         </td>
