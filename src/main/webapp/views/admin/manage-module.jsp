@@ -20,7 +20,8 @@
 
         </li>
         <li><a href="/admin/manage-module">Menu Master</a></li>
-        <li><a href="#">Personal Master</a></li>
+        <li><a href="/admin/manage-mapping">Role Mapping</a></li>
+
 
     </ul>
 </div>

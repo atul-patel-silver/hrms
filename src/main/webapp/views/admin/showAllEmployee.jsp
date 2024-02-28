@@ -20,9 +20,12 @@
         <ul>
             <li><a href="/admin/dashboard">Dashboard</a></li>
             <li><a href="/admin/employeeList">Employees</a></li>
-            <li><a href="#">Job Master</a></li>
-            <li><a href="#">Pay Master</a></li>
-            <li><a href="#">Personal Master</a></li>
+            <li><a href="/admin/manage-role">Role Master</a>
+
+            </li>
+            <li><a href="/admin/manage-module">Menu Master</a></li>
+            <li><a href="/admin/manage-mapping">Role Mapping</a></li>
+
         </ul>
     </div>
 
