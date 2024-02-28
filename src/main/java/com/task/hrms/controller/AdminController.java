@@ -70,14 +70,32 @@ public class AdminController {
 
     @Autowired
     private QualificationService qualificationService;
+    @Autowired
+    private RoleService roleService;
+
 
     //dashboard
     @GetMapping("/dashboard")
     public String adminDashboard() {
         return "admin/dashboard";
     }
-//download Excel file
 
+    //role page
+@GetMapping("/manage-role")
+    public String manageRole(Model model){
+        try{
+            List<Role> roles = this.roleService.findAll();
+            model.addAttribute("roles",roles);
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return "admin/manage-role";
+    }
+
+    //download Excel file
     @GetMapping("/get-excel-file")
     public ResponseEntity<byte[]> complainExcelFile() throws Exception{
 
